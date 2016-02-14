@@ -1,0 +1,8 @@
+<design:component>
+	<design:attribute name="objectName" label="Object Name" description="Please specify the object name." />
+    <design:attribute name="searchFields" label="Search Filed Name" description="Please field name to the search item specified in comma-delimited."/>
+    <design:attribute name="listFields" label="List Field Name" description="Please specify the field name to be displayed in the list separated by commas."/>
+    <design:attribute name="title" label="Title" description="Please to have a title to be displayed to the components of the header."/>
+    <design:attribute name="detailTitle" label="Detail Title" description="Please to have a title to be displayed to the components of the header."/>
+    <design:attribute name="listDisplayLength" label="List Display Length" description="Please specify the number to be displayed on the list."/>
+</design:component>

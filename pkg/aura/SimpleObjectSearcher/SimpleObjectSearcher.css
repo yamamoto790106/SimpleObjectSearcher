@@ -1,0 +1,14 @@
+.THIS {
+}
+.THIS .searchField_left .uiInput   {
+	margin-top:8px;
+}
+.THIS .searchField_right .uiInput   {
+	margin-top:8px;
+}
+.THIS .searchField_left select {
+    height:34px;
+}
+.THIS .searchField_right select {
+    height:34px;
+}

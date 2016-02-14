@@ -1,0 +1,54 @@
+<aura:component access="global" controller="SimpleSearchController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">    
+    <ltng:require styles="/resource/SimpleObjectSearcher/css/jqueryui.css,
+                          /resource/SimpleObjectSearcher/css/bootstrap.css,
+                          /resource/SimpleObjectSearcher/css/datatables.css,
+                          /resource/SimpleObjectSearcher/css/datatablebootstrap.css,
+                          /resource/SimpleObjectSearcher/css/responsivebootstrap.css,
+                          /resource/SimpleObjectSearcher/css/jquerydatatables.css,
+                          /resource/simpleobjectsearchercss/datatablesbuttons.css"
+                  scripts="/resource/SimpleObjectSearcher/js/SimpleObjectSearcher.js" afterScriptsLoaded="{!c.doInit}"/> 
+    <aura:attribute name="objectName" type="String" default="contact"/>
+    <aura:attribute name="searchFields" type="String" default="name,id,email"/>
+    <aura:attribute name="listFields" type="String" default="name,id,email"/>
+    <aura:attribute name="title" type="String" default="Simple Search"/>
+    <aura:attribute name="detailTitle" type="String" default="Simple Search Detail"/>
+    <aura:attribute name="listDisplayLength" type="Integer"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="simplesearch_searchField_left" type="Aura.Component[]" access="GLOBAL"/>
+    <aura:attribute name="simplesearch_searchField_right" type="Aura.Component[]" access="GLOBAL"/>
+
+    <form method="post" action="hoge" class="form-horizontal">
+    <div class="ui-widget simplesearchjqueryui simplesearchbootstrap simplesearchdatapicker simplesearchdatatables simplesearchdatatables simplesearchdatatablebootstrap simplesearchresponsivebootstrap simplesearchjquerydatatables simplesearchdatatablesresponsive simplesearchdatatablesbuttons">
+        <h2>{!v.title}&nbsp;&nbsp;<button type="button" class="btn btn-sm" onclick="{!c.toggle}"><span id="simplesearch_searchField_toggle_icon" class="glyphicon glyphicon-chevron-up"></span></button></h2>
+        <div class="header collapse in" id="simplesearch_searchField">
+            <div class="form-horizontal well center-block" style="max-width:90%">
+                <aura:renderIf isTrue="{!v.message.length > 0}">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-8 alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span>
+                            {!v.message}
+                        </div>
+                    </div>
+                </aura:renderIf>
+                <div class="form-group">
+                    <div class="col-sm-6 searchField_left">
+                        <div aura:id="simplesearch_searchField_left">{!v.simplesearch_searchField_left}</div>
+                    </div>
+                    <div class="col-sm-6 searchField_right">
+                        <div aura:id="simplesearch_searchField_right">{!v.simplesearch_searchField_right}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4">
+                    <ui:button aura:id="button" buttonTitle="Search" class="default uiBlock  uiButton forceCommunityAskCommunity" label="検索" press="{!c.doSearch}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="simplesearch_spinner" align="center" class="loading-spinner-container" style="display:none"><img id="loading-spinner" src="../resource/simplesearch/images/slds_spinner.gif" alt="Loading..."/></div>
+        <div id="simplesearch_DataTable">
+        </div>
+    </div>
+    </form>
+</aura:component>

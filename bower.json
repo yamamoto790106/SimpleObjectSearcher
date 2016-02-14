@@ -1,0 +1,19 @@
+{
+  "name": "SimpleObjectSearcher",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "^1.11.2",
+    "bootstrap": "^3.3.6",
+    "datatables.net-bs": "^1.10.11",
+    "datatables.net-buttons": "^1.1.2",
+    "datatables.net-buttons-bs": "^1.1.2",
+    "underscore": "^1.8.3",
+    "datatables": "^1.10.11",
+    "datatables.net-responsive": "^2.0.2",
+    "datatables.net-responsive-dt": "^2.0.2",
+    "datatables.net-scroller": "^1.4.1",
+    "datatables.net-scroller-dt": "^1.4.1",
+    "datatables.net-buttons-dt": "^1.1.2",
+    "buttons.css": "buttons#^1.0.4"
+  }
+}
