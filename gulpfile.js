@@ -133,7 +133,7 @@ gulp.task('deploy', function() {
   })
   .pipe(gulpif('**/*.cmp', replace(/__NOCACHE__/g, ts)))
   .pipe(zip('pkg.zip'))
-  .pipe(forceDeploy("sfdc.yyamamoto+lex01@gmail.com", "sfdcj123"))
+  .pipe(forceDeploy(process.env.SF_USERNAME, process.env.SF_PASSWORD))
   .on('error', handleErrors);
 });
 
