@@ -1,12 +1,12 @@
-<aura:component access="global" controller="SimpleSearchController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">    
-    <ltng:require styles="/resource/SimpleObjectSearcher/css/jqueryui.css,
-                          /resource/SimpleObjectSearcher/css/bootstrap.css,
-                          /resource/SimpleObjectSearcher/css/datatables.css,
-                          /resource/SimpleObjectSearcher/css/datatablebootstrap.css,
-                          /resource/SimpleObjectSearcher/css/responsivebootstrap.css,
-                          /resource/SimpleObjectSearcher/css/jquerydatatables.css,
-                          /resource/simpleobjectsearchercss/datatablesbuttons.css"
-                  scripts="/resource/SimpleObjectSearcher/js/SimpleObjectSearcher.js" afterScriptsLoaded="{!c.doInit}"/> 
+<aura:component access="global" controller="SimpleObjectSearcherController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">    
+    <ltng:require styles="/resource/SimpleObjectSearcher/css/jqueryui.min.css?__NOCACHE__,
+                          /resource/SimpleObjectSearcher/css/bootstrap.min.css?__NOCACHE__,
+                          /resource/SimpleObjectSearcher/css/datatables.min.css?__NOCACHE__,
+                          /resource/SimpleObjectSearcher/css/datatablebootstrap.min.css?__NOCACHE__,
+                          /resource/SimpleObjectSearcher/css/responsivebootstrap.min.css?__NOCACHE__,
+                          /resource/SimpleObjectSearcher/css/jquerydatatables.min.css?__NOCACHE__,
+                          /resource/simpleobjectsearcher/css/datatablesbuttons.min.css?__NOCACHE__"
+                  scripts="/resource/SimpleObjectSearcher/js/SimpleObjectSearcher.js?__NOCACHE__" afterScriptsLoaded="{!c.doInit}"/> 
     <aura:attribute name="objectName" type="String" default="contact"/>
     <aura:attribute name="searchFields" type="String" default="name,id,email"/>
     <aura:attribute name="listFields" type="String" default="name,id,email"/>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div id="simplesearch_spinner" align="center" class="loading-spinner-container" style="display:none"><img id="loading-spinner" src="../resource/simplesearch/images/slds_spinner.gif" alt="Loading..."/></div>
+        <div id="simplesearch_spinner" align="center" class="loading-spinner-container" style="display:none"><img id="loading-spinner" src="../resource/SimpleObjectSearcher/images/slds_spinner.gif" alt="Loading..."/></div>
         <div id="simplesearch_DataTable">
         </div>
     </div>

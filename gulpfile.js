@@ -19,6 +19,9 @@ var assign = require('lodash.assign');
 var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 var header = require('gulp-header');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var del = require('del');
 
 var handleErrors = function(err, callback) {
   notify.onError({
@@ -59,7 +62,6 @@ gulp.task('build', ['js', 'css', 'statics'], function() {
   .pipe(gulp.dest('./pkg/staticresources'));
 });
 
-// add custom browserify options here
 var customOpts = {
   entries: ['./src/js/'+ componentName +'.js'],
   debug: true
@@ -71,7 +73,7 @@ var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' **/',
   ''].join('\n');
-   
+/*
 gulp.task('js', bundle); // so you can run <code>gulp js</code> to build the file
 b.on('update', bundle); // on any dep update, runs the bundler
 b.on('log', gutil.log); // output build logs to terminal
@@ -99,7 +101,7 @@ function bundle() {
     .pipe(header(banner, { pkg : pkg } ))
     .pipe(gulp.dest('./build/js'));
 }
-/*
+*/
 gulp.task('js', function() {
   return browserify({
     entries: ['./src/js/'+ componentName +'.js'],
@@ -109,14 +111,15 @@ gulp.task('js', function() {
   .on('error', gutil.log.bind(gutil, 'Browserify Error'))
   .pipe(source(componentName + '.js'))
   .pipe(buffer())
-  .pipe(deamd())
+  .pipe(header(banner, { pkg : pkg } ))
+  //.pipe(deamd())
   .pipe(gulp.dest('./build/js'));
 });
-*/
 
 gulp.task('css', function() {
   return gulp.src('./src/css/*.css')
   .pipe(cssmin())
+  .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('./build/css'));
 });
 
@@ -133,7 +136,7 @@ gulp.task('deploy', function() {
   })
   .pipe(gulpif('**/*.cmp', replace(/__NOCACHE__/g, ts)))
   .pipe(zip('pkg.zip'))
-  .pipe(forceDeploy(process.env.SF_USERNAME, process.env.SF_PASSWORD))
+  .pipe(forceDeploy('sfdc.yyamamoto+lex01@gmail.com', 'sfdcj123'))
   .on('error', handleErrors);
 });
 

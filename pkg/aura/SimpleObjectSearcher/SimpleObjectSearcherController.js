@@ -4,7 +4,6 @@
         helper.toggle();
     },
     doInit : function(component, event, helper) {
-        console.log('***** doInit() Start');
         var $ = SimpleObjectSearcher.jq();
         var globalId = component.getGlobalId();
         var dataTableId = 'simplesearch_DataTable';
